@@ -1,12 +1,11 @@
 name: Publish Dev Container Feature
 on:
   push:
-    tags:
-      - 'v*'        # 例: v1.0.0 を切った時に発火
+    tags: ['v*']
 
 permissions:
   contents: read
-  packages: write   # GHCRへのpushに必要
+  packages: write   # GHCR へ publish に必須
 
 jobs:
   publish:
@@ -14,10 +13,12 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      # devcontainers/action: Featureをパッケージ化＆GHCRへpublish
-      - name: Publish feature
+      - name: Publish feature(s)
         uses: devcontainers/action@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # ← これが肝
         with:
-          publish-features: 'true'
-          base-path-to-features: './src'
-          # 必要に応じて registries: ghcr.io などの指定も可
+          publish-features: true
+          base-path-to-features: ./src
+          # registries: ghcr.io        # 省略可（既定 ghcr.io）
+          # namespace: asobod11138/devcontainer-features  # 省略可（既定：<owner>/<repo>）
