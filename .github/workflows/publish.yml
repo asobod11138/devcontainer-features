@@ -1,0 +1,23 @@
+name: Publish Dev Container Feature
+on:
+  push:
+    tags:
+      - 'v*'        # 例: v1.0.0 を切った時に発火
+
+permissions:
+  contents: read
+  packages: write   # GHCRへのpushに必要
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # devcontainers/action: Featureをパッケージ化＆GHCRへpublish
+      - name: Publish feature
+        uses: devcontainers/action@v1
+        with:
+          publish-features: 'true'
+          base-path-to-features: './src'
+          # 必要に応じて registries: ghcr.io などの指定も可
