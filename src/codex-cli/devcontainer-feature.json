@@ -2,15 +2,8 @@
   "id": "codex-cli",
   "version": "0.0.4",
   "name": "Codex CLI",
-  "description": "Installs OpenAI Codex CLI via npm and optionally sets OPENAI_API_KEY.",
+  "description": "Installs OpenAI Codex CLI and Anthropic Claude Code via npm.",
   "documentationURL": "https://www.npmjs.com/package/@openai/codex",
-  "options": {
-    "OPENAI_API_KEY": {
-      "type": "string",
-      "default": "",
-      "description": "Your OpenAI API key. If set, will be exported for all shells."
-    }
-  },
   "installsAfter": [
     "ghcr.io/devcontainers/features/node:1"
   ]

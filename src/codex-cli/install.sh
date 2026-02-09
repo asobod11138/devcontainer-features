@@ -13,7 +13,5 @@ fi
 # Codex CLI のインストール
 npm install -g @openai/codex
 
-# OPENAI_API_KEYが指定されていれば環境変数を設定
-if [ -n "$OPENAI_API_KEY" ]; then
-    echo "export OPENAI_API_KEY=$OPENAI_API_KEY" >> /etc/bash.bashrc
-fi
+# Claude Code のインストール
+npm install -g @anthropic-ai/claude-code
