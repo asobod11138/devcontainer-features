@@ -23,7 +23,8 @@ npm install -g @openai/codex
 npm install -g @anthropic-ai/claude-code
 
 # Claude コマンドを PATH で確実に見えるようにする
-NPM_GLOBAL_BIN="$(npm bin -g)"
+NPM_PREFIX="$(npm config get prefix)"
+NPM_GLOBAL_BIN="${NPM_PREFIX}/bin"
 mkdir -p /usr/local/bin
 if ! command -v claude &> /dev/null; then
     if [ -x "${NPM_GLOBAL_BIN}/claude" ]; then

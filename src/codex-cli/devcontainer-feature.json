@@ -1,6 +1,6 @@
 {
   "id": "codex-cli",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "name": "Codex CLI",
   "description": "Installs OpenAI Codex CLI and Anthropic Claude Code via npm.",
   "documentationURL": "https://www.npmjs.com/package/@openai/codex",
